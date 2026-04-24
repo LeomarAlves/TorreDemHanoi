@@ -9,11 +9,11 @@ void resolverHanoi(int n, stack<int>& origem, stack<int>& destino, stack<int>& a
 
 int main(){
     stack<int> hasteA, hasteB, hasteC;
-    int n = 3;
+    int n = 5;
 
     inicializarHastes(n, hasteA, hasteB, hasteC);
 
-    assert(hasteA.size() == 3);
+    assert(hasteA.size() == 5);
     assert(hasteB.empty() == true);
     assert(hasteC.empty() == true);
     assert(hasteA.top() == 1);
@@ -24,7 +24,7 @@ int main(){
 
     assert(hasteA.empty() == true);
     assert(hasteB.empty() == true);
-    assert(hasteC.size() ==3);
+    assert(hasteC.size() ==5);
     assert(hasteC.top() == 1);
 
     cout << "Teste de resolução da Torre de Hanoi passou com sucesso!" << endl;
