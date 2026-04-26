@@ -1,15 +1,14 @@
 #include <iostream>
 #include <stack>
 #include <cassert>
+#include "../include/hanoi.h"
 
 using namespace std;
-
-void inicializarHastes(int n, stack<int>& a, stack<int>& b, stack<int>& c);
-void resolverHanoi(int n, stack<int>& origem, stack<int>& destino, stack<int>& auxiliar, char nomeOrigem, char nomeDestino, char nomeAuxiliar);
 
 int main(){
     stack<int> hasteA, hasteB, hasteC;
     int n = 5;
+    int contador =0;
 
     inicializarHastes(n, hasteA, hasteB, hasteC);
 
@@ -20,7 +19,7 @@ int main(){
 
     cout << "Teste de inicialização passou com sucesso!" << endl;
 
-    resolverHanoi(n, hasteA, hasteC, hasteB, 'A', 'C', 'B');
+    resolverHanoi(n, hasteA, hasteC, hasteB, 'A', 'C', 'B', contador);
 
     assert(hasteA.empty() == true);
     assert(hasteB.empty() == true);
