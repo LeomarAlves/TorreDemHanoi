@@ -12,20 +12,20 @@ void inicializarHastes(int n, stack<int>& a, stack<int>& b, stack<int>& c){
     }
 }
 
-void resolverHanoi(int n, stack<int>& origem, stack<int>& destino, stack<int>& auxiliar, char nomeOrigem, char nomeDestino, char nomeAuxiliar, int& contador) {
+void resolverHanoi(int n, stack<int>& origem, stack<int>& destino, stack<int>& auxiliar, char nomeOrigem, char nomeDestino, char nomeAuxiliar, hanoi& jogo) {
     if (n == 1) {
         int disco = origem.top();
         destino.push(disco);
         origem.pop();
         cout << "Mover disco " << disco << " de " << nomeOrigem << " para " << nomeDestino << endl;
-        imprimirEstado(origem, auxiliar, destino);
-        contador++;
+        imprimirEstado(jogo);
+        jogo.contador++;
         return;
     }
 
-    resolverHanoi(n - 1, origem, auxiliar, destino, nomeOrigem, nomeAuxiliar, nomeDestino, contador);
-    resolverHanoi(1, origem, destino, auxiliar, nomeOrigem, nomeDestino, nomeAuxiliar, contador);
-    resolverHanoi(n - 1, auxiliar, destino, origem, nomeAuxiliar, nomeDestino, nomeOrigem, contador);
+    resolverHanoi(n - 1, origem, auxiliar, destino, nomeOrigem, nomeAuxiliar, nomeDestino, jogo);
+    resolverHanoi(1, origem, destino, auxiliar, nomeOrigem, nomeDestino, nomeAuxiliar, jogo);
+    resolverHanoi(n - 1, auxiliar, destino, origem, nomeAuxiliar, nomeDestino, nomeOrigem, jogo);
 }
 
 string imprimirPilha(char nome, stack<int> p){
@@ -53,8 +53,8 @@ string imprimirPilha(char nome, stack<int> p){
     return texto;
 }
 
-void imprimirEstado(stack<int> a, stack<int> b, stack<int> c) {
-    cout << imprimirPilha('A', a) << " ";
-    cout << imprimirPilha('B', b) << " ";
-    cout << imprimirPilha('C', c) << endl;
+void imprimirEstado(hanoi& jogo) {
+    cout << imprimirPilha('A', jogo.hasteA) << " ";
+    cout << imprimirPilha('B', jogo.hasteB) << " ";
+    cout << imprimirPilha('C', jogo.hasteC) << endl;
 }
