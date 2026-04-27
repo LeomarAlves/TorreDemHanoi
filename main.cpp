@@ -1,4 +1,4 @@
-#include "../include/hanoi.h"
+#include "include/hanoi.h"
 #include <iostream>
 #include <stack>
 #include <string>

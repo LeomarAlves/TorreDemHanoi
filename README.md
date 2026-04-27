@@ -1,47 +1,67 @@
 # Torre de Hanoi
 
-Este projeto é uma implementação em C++ do clássico quebra-cabeça matemático **Torre de Hanoi**, utilizando a estrutura de dados `std::stack` (pilha) para representar as hastes.
+Este projeto é uma implementação em C++ do clássico quebra-cabeça matemático **Torre de Hanoi**, utilizando a estrutura de dados `std::stack` (pilha) para representar as hastes e um algoritmo recursivo para a resolução.
 
 ## 🚀 Sobre o Projeto
 
-A Torre de Hanoi consiste em três hastes e um número de discos de diferentes tamanhos que podem deslizar em qualquer haste. O enigma começa com os discos empilhados em uma haste em ordem decrescente de tamanho, o menor no topo.
+A Torre de Hanoi consiste em três hastes (A, B e C) e um número de discos de diferentes tamanhos. O objetivo é mover todos os discos da haste de origem para a haste de destino, seguindo regras estritas.
 
-### Regras:
+### Regras do Jogo:
 1. Apenas um disco pode ser movido por vez.
 2. Cada movimento consiste em pegar o disco superior de uma das pilhas e colocá-lo no topo de outra pilha.
 3. Nenhum disco pode ser colocado em cima de um disco menor.
 
-## 🛠️ Estrutura do Projeto
+## 🛠️ Tecnologias Utilizadas
 
-- `src/`: Contém os arquivos de implementação (.cpp).
-  - `hanoi.cpp`: Lógica de inicialização e resolução recursiva.
-  - `main.cpp`: Ponto de entrada que demonstra o funcionamento e valida a lógica com asserts.
-- `include/`: Contém os arquivos de cabeçalho (.h).
-  - `hanoi.h`: Protótipos das funções.
-- `testes/`: Contém testes unitários e de integração.
+- **Linguagem:** C++
+- **Estruturas de Dados:** `std::stack` (STL)
+- **Algoritmo:** Recursão
 
-## 💻 Como Executar
+## 📂 Estrutura do Projeto
 
-### Pré-requisitos
-- Compilador C++ (GCC, Clang, etc.)
-
-### Compilação
-Para compilar o projeto manualmente, você pode usar o seguinte comando no terminal:
-
-```bash
-g++ src/main.cpp src/hanoi.cpp -I include -o hanoi
+```text
+.
+├── main.cpp            # Ponto de entrada da aplicação interativa
+├── include/
+│   └── hanoi.h         # Definições de estruturas e protótipos de funções
+├── src/
+│   └── hanoi.cpp       # Implementação da lógica do jogo e do algoritmo
+└── testes/
+    └── test_hanoi.cpp  # Testes unitários e de integração
 ```
 
-### Execução
-Após a compilação, execute o binário gerado:
+## 💻 Como Compilar e Executar
+
+### Pré-requisitos
+- Compilador C++ (recomendado GCC ou Clang)
+
+### 1. Compilar o Programa Principal
+Para compilar a versão interativa onde você pode definir o número de discos:
+
+```bash
+g++ main.cpp src/hanoi.cpp -I include -o hanoi
+```
+
+### 2. Executar
+Após a compilação bem-sucedida, execute o binário gerado:
 
 ```bash
 ./hanoi
 ```
 
-## 🧪 Testes
+### 3. Executar Testes Automatizados
+O projeto inclui uma suíte de testes básica para validar a lógica de inicialização e resolução:
 
-O arquivo `src/main.cpp` atualmente contém testes automatizados simples usando `assert` para garantir que:
-1. As hastes sejam inicializadas corretamente.
-2. O algoritmo mova todos os discos para a haste de destino respeitando as regras.
-3. A pilha de origem termine vazia e a de destino contenha todos os discos na ordem correta.
+```bash
+g++ testes/test_hanoi.cpp src/hanoi.cpp -I include -o test_hanoi
+./test_hanoi
+```
+
+## 🧠 Lógica de Implementação
+
+O algoritmo utiliza uma abordagem **Dividir e Conquistar** através de recursão:
+1. Move `n-1` discos da **Origem** para a **Auxiliar**.
+2. Move o disco `n` (o maior) da **Origem** para o **Destino**.
+3. Move os `n-1` discos da **Auxiliar** para o **Destino**.
+
+A complexidade de tempo do algoritmo é $O(2^n)$, e o número total de movimentos realizados é $2^n - 1$.
