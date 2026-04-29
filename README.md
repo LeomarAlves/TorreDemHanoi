@@ -74,4 +74,4 @@ A Pilha (Stack) opera sob o princípio LIFO (Last-In, First-Out, ou "último a e
 
 ### 2. Seria possível resolver este problema sem recursão? Se sim, como? Se não, por quê? ###
 
-Sim, o problema poderia ser resolvido usando laços de repetição como for ou while
+Sim, o problema poderia ser resolvido usando laços de repetição como for ou while para empilhar e desempilhar "manualmente" os discos nas hastes.
