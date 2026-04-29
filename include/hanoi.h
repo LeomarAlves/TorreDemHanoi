@@ -3,20 +3,18 @@
 #include <stack>
 #include <string>
 
-using namespace std;
-
 struct hanoi
 {
-    stack<int> hasteA;
-    stack<int> hasteB;
-    stack<int> hasteC;
+    std:: stack<int> hasteA;
+    std:: stack<int> hasteB;
+    std:: stack<int> hasteC;
     int contador;
 };
 
 
-void inicializarHastes(int n, stack<int>& a, stack<int>& b, stack<int>& c);
-void resolverHanoi(int n, stack<int>& origem, stack<int>& destino, stack<int>& auxiliar, char nomeOrigem, char nomeDestino, char nomeAuxiliar, hanoi& jogo);
-string imprimirPilha(char nome, stack<int> p);
+void inicializarHastes(int n, std:: stack<int>& a, std:: stack<int>& b, std:: stack<int>& c);
+void resolverHanoi(int n, std:: stack<int>& origem, std:: stack<int>& destino, std:: stack<int>& auxiliar, char nomeOrigem, char nomeDestino, char nomeAuxiliar, hanoi& jogo);
+std:: string imprimirPilha(char nome, std:: stack<int> p);
 void imprimirEstado(hanoi& jogo);
 
 #endif

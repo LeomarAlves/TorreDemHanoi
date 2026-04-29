@@ -65,3 +65,13 @@ O algoritmo utiliza uma abordagem **Dividir e Conquistar** através de recursão
 3. Move os `n-1` discos da **Auxiliar** para o **Destino**.
 
 A complexidade de tempo do algoritmo é $O(2^n)$, e o número total de movimentos realizados é $2^n - 1$.
+
+# 📝 Justificativas Técnicas
+
+### 1. Por que a Pilha é a estrutura de dados naturalmente adequada para modelar as hastes deste problema? ###
+
+A Pilha (Stack) opera sob o princípio LIFO (Last-In, First-Out, ou "último a entrar, primeiro a sair"). As regras do quebra-cabeça Torre de Hanoi ditam exatamente este comportamento: você só pode mover os dicos que estão no topo da haste, tanto para retirar quanto para incluir.
+
+### 2. Seria possível resolver este problema sem recursão? Se sim, como? Se não, por quê? ###
+
+Sim, o problema poderia ser resolvido usando laços de repetição como for ou while
